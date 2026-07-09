@@ -1,0 +1,131 @@
+@config "../../tailwind.config.ts";
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --ink: #0a0a0f;
+  --paper: #f8f8fb;
+  --graphite: #15151d;
+  --smoke: #6d6a78;
+  --violet: #7c3aed;
+  --violet-deep: #5b21b6;
+  --violet-soft: #ede9fe;
+  --line: rgba(21, 21, 29, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--ink);
+  background: #ffffff;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(21, 21, 29, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 21, 29, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 88%);
+}
+
+.glass-panel {
+  background: #ffffff;
+  border: 1px solid var(--line);
+}
+
+.panel-inset {
+  background: #faf8ff;
+  border: 1px solid rgba(124, 58, 237, 0.16);
+}
+
+.surface-dark {
+  background: #0a0a0f;
+  border: 1px solid #0a0a0f;
+  color: white;
+}
+
+.eyebrow {
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: float-in 0.6s ease both;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14);
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.18);
+}

@@ -1,0 +1,45 @@
+{
+  "name": "crowdit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "pnpm exec tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "contract:test": "cargo test --manifest-path contracts/crowdfund/Cargo.toml",
+    "contract:build": "cargo build --target wasm32v1-none --release --manifest-path contracts/crowdfund/Cargo.toml",
+    "contract:test:reward": "cargo test --manifest-path contracts/reward-token/Cargo.toml",
+    "contract:build:reward": "cargo build --target wasm32v1-none --release --manifest-path contracts/reward-token/Cargo.toml"
+  },
+  "dependencies": {
+    "@stellar/freighter-api": "6.0.1",
+    "@stellar/stellar-sdk": "15.0.1",
+    "@tanstack/react-query": "5.100.6",
+    "clsx": "2.1.1",
+    "lucide-react": "0.552.0",
+    "next": "16.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "sonner": "2.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.2.4",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/node": "25.6.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "10.5.0",
+    "jsdom": "29.1.0",
+    "postcss": "8.5.12",
+    "tailwindcss": "4.2.4",
+    "typescript": "6.0.3",
+    "vitest": "4.1.5"
+  }
+}

@@ -1,0 +1,9 @@
+[workspace]
+members = ["contracts/crowdfund", "contracts/reward-token"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+
+[workspace.dependencies]
+soroban-sdk = "22.0.8"
